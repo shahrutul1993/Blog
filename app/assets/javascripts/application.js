@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require popper
-//= require bootstrap-sprockets
+
 
 //= require plugins.js
 //= require twitterFetcher_min.js
