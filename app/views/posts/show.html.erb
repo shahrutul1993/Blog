@@ -1,26 +1,474 @@
 <%= provide(:page_title, @post.title)%>
 <% provide(:blog_active, 'active') %>
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+ <section class="header-wrap hero-section bg-light">
+      <div class="container">
+        <div class="logo-container text-center">
+          <div class="logo-wrap">
+            <%= link_to "/" do%>
+            <%= image_tag("http://via.placeholder.com/270x270", class: "logo-dark", alt:"") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @post.slug %>
-</p>
+<div class="content-wrapper oh">
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+      <!-- Content -->
+      <section class="content post-single pt-70 pt-mdm-60">
+        <div class="container relative">
+          <div class="row">
+            <!-- post content -->
+            <div class="col-md-9 post-content mb-50">
+              <!-- large post -->
+              <article class="entry-item large-post">
+                <div class="entry-header">
+                  <%= link_to "/", class: "entry-category" do%>Lifestyle<% end %>
+                  <h1 class="entry-title"><%= @post.title%></h1>
+                  <h6><%= @post.display_day_published%></h6>
+                </div>
+
+                <div class="entry-img">
+                 <%= link_to "/" do%>
+                   <%= image_tag("http://via.placeholder.com/888x578", class: "img-responsive", alt:"") %>
+                  <% end %>
+                </div>
+
+                <div class="entry-wrap">
+                  <div class="entry">
+                    <div class="entry-content">
+                      <div class="article">
+                        <p><%= @post.body %></p>
+
+                        <blockquote>
+                          <p>
+                            Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.
+                          </p>
+                          <span>Bernard M. Baruch</span>
+                        </blockquote>
+
+                        <p>Our Theme is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious. Our subconscious mind contains such power and complexity that it literally staggers the imagination.</p>
+                        
+                        <h5 class="uppercase">The best flexible theme on themeforest</h5>
+                        
+                        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. And finally the subconscious is the mechanism through which thought impulses which are repeated regularly with feeling and emotion are quickened, charged. And finally the subconscious is the mechanism through which thought impulses which are repeated regularly with feeling and emotion are quickened, charged and changed into their physical equivalent.</p>
+                      </div>
+
+                      <!-- tags -->
+                      <div class="entry-tags tags mb-50 mt-40 clearfix">
+                       <%= link_to "/" do%>Creative<% end %>
+                       <%= link_to "/" do%>Responsive<% end %>
+                       <%= link_to "/" do%>Ecommerce<% end %>
+                       <%= link_to "/" do%>Theme<% end %>
+                       <%= link_to "/" do%>Clean<% end %>
+                      </div>
+
+                      <div class="entry-meta-wrap clearfix">
+                        <ul class="entry-meta">
+                          <li class="entry-date">
+                             <%= link_to "/" do%>August 30, 2016<% end %>
+                          </li>
+                          <li class="entry-comments">
+                            <%= link_to "/" do%>2 Comments<% end %>
+                          </li>
+                        </ul>
+
+                        <div class="social-icons right">
+                       <%= link_to "/" do%><i class="fa fa-instagram"></i><% end %>
+                       <%= link_to "/" do%><i class="fa fa-facebook"></i><% end %>
+                       <%= link_to "/" do%><i class="fa fa-twitter"></i><% end %>
+                       <%= link_to "/" do%><i class="fa fa-pinterest-p"></i><% end %>
+                       <%= link_to "/" do%><i class="fa fa-heart"></i><% end %>
+                        </div>
+                      </div>
+
+                      <!-- entry author -->
+                      <div class="entry-author-box clearfix">
+                      <%= image_tag("http://via.placeholder.com/100x100", class: "author-img", alt:"") %>
+                        <div class="author-info">
+                          <h6 class="author-name">
+                         <%= link_to "/" do%>Alexis Ran<% end %></h6>
+                          <p class="mb-0">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quisma bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus itaet.
+                          </p>
+                          <div class="social-icons">
+                            <%= link_to "/" do%><i class="fa fa-instagram"></i><% end %>
+                            <%= link_to "/" do%><i class="fa fa-facebook"></i><% end %>
+                            <%= link_to "/" do%><i class="fa fa-twitter"></i><% end %>
+                            <%= link_to "/" do%><i class="fa fa-pinterest-p"></i><% end %>
+                            <%= link_to "/" do%><i class="fa fa-heart"></i><% end %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- related posts -->
+                      <div class="related-posts mt-40">
+                        <div class="heading-lines mb-30">
+                          <h3 class="heading small">Related Posts</h3>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <article class="entry-item">
+                              <div class="entry-img">
+                               <%= link_to "/" do%>
+                                    <%= image_tag("http://via.placeholder.com/425x324", alt:"") %>
+                                <% end %>
+                              </div>
+                              <h4 class="entry-title">
+                                 <%= link_to "/" do%>Missing the Bahamas<% end %>
+                              </h4>
+                              <div class="entry-meta-wrap clearfix">
+                                <ul class="entry-meta">
+                                  <li class="entry-date">
+                                    <%= link_to "/" do%>August 30, 2016<% end %>
+                                  </li>                             
+                                </ul>
+                              </div>
+                            </article>
+                          </div>
+
+                          <div class="col-sm-4">
+                            <article class="entry-item">
+                              <div class="entry-img">
+                               <%= link_to "/" do%>
+                                    <%= image_tag("http://via.placeholder.com/425x324", alt:"") %>
+                                <% end %>
+                              </div>
+                              <h4 class="entry-title">
+                                 <%= link_to "/" do%>Missing the Bahamas<% end %>
+                              </h4>
+                              <div class="entry-meta-wrap clearfix">
+                                <ul class="entry-meta">
+                                  <li class="entry-date">
+                                    <%= link_to "/" do%>August 30, 2016<% end %>
+                                  </li>                             
+                                </ul>
+                              </div>
+                            </article>
+                          </div>
+                          <div class="col-sm-4">
+                            <article class="entry-item">
+                              <div class="entry-img">
+                               <%= link_to "/" do%>
+                                    <%= image_tag("http://via.placeholder.com/425x324", alt:"") %>
+                                <% end %>
+                              </div>
+                              <h4 class="entry-title">
+                                 <%= link_to "/" do%>Missing the Bahamas<% end %>
+                              </h4>
+                              <div class="entry-meta-wrap clearfix">
+                                <ul class="entry-meta">
+                                  <li class="entry-date">
+                                    <%= link_to "/" do%>August 30, 2016<% end %>
+                                  </li>                             
+                                </ul>
+                              </div>
+                            </article>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Comments -->
+                      <div class="entry-comments mt-20">
+                        <div class="heading-lines mb-30">
+                          <h3 class="heading small">3 comments</h3>
+                        </div>
+
+                        <ul class="comment-list">
+                          <li>
+                            <div class="comment-body">
+                            <%= link_to "/" do%>
+                            <%= image_tag("http://via.placeholder.com/425x324", class: "comment-avatar", alt:"") %>
+                            <% end %>
+                              <div class="comment-content">
+                                <span class="comment-author">Joeby Ragpa</span>
+                                <span class="comment-date">August 6, 2016 at 12:48 pm</span>    
+                                <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
+                                <%= link_to "/" do%>Reply<% end %>
+                              </div>
+                            </div>
+
+                            <ul class="comment-reply">
+                              <li>
+                                <div class="comment-body">
+                            <%= link_to "/" do%>
+                            <%= image_tag("http://via.placeholder.com/425x324", class: "comment-avatar", alt:"") %>
+                            <% end %>
+                              <div class="comment-content">
+                                <span class="comment-author">Joeby Ragpa</span>
+                                <span class="comment-date">August 6, 2016 at 12:48 pm</span>    
+                                <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
+                                <%= link_to "/" do%>Reply<% end %>
+                              </div>
+                            </div>
+                              </li> <!-- end reply comment -->
+                            </ul>
+
+                          </li> <!-- end 1-2 comment -->
+
+                          <li>
+                            <div class="comment-body">
+                            <%= link_to "/" do%>
+                            <%= image_tag("http://via.placeholder.com/425x324", class: "comment-avatar", alt:"") %>
+                            <% end %>
+                              <div class="comment-content">
+                                <span class="comment-author">Joeby Ragpa</span>
+                                <span class="comment-date">August 6, 2016 at 12:48 pm</span>    
+                                <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
+                                <%= link_to "/" do%>Reply<% end %>
+                              </div>
+                            </div>
+                          </li> <!-- end 3 comment -->
+                        </ul>
+                      </div> <!--  end comments -->
+
+                      <!-- Leave a Comment -->
+                      <div class="comment-form mt-60">
+                        <div class="heading-lines mb-30">
+                          <h3 class="heading small">Leave a Comment</h3>
+                        </div>
+                        <form id="form" method="post" action="#">
+                          <div class="row row-16">
+                            <div class="col-md-4">
+                              <input name="name" id="name" type="text" placeholder="Name*">
+                            </div>
+                            <div class="col-md-4">
+                              <input name="mail" id="mail" type="email" placeholder="E-mail*">
+                            </div>
+                            <div class="col-md-4">
+                              <input name="Website" id="Website" type="text" placeholder="Website">
+                            </div>
+                            <div class="col-md-12">
+                              <textarea name="comment" id="comment" placeholder="Comment" rows="8"></textarea>
+                            </div>
+                          </div>
+
+                          <input type="submit" class="btn btn-lg btn-color mt-20" value="Post Comment" id="submit-message">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article> <!-- end large post -->
+            </div> <!-- end col -->
+
+            <!-- Sidebar -->
+            <aside class="col-md-3 sidebar">
+
+              <div class="widget about-blog text-center">
+                <div class="heading-lines">
+                  <h3 class="widget-title heading">About Me</h3>
+                </div>
+               <%= image_tag("http://via.placeholder.com/300x196", class: "img-responsive", alt:"") %>
+                <p class="mb-20 mt-30">A personal diary of wanderlust and an overflowing wardrobe. Live with passion.</p>
+                <img src="img/signature.png" alt="">
+              </div>
+
+              <!-- Newsletter -->
+              <div class="widget newsletter">
+                <div class="heading-lines">
+                  <h3 class="widget-title heading">Newsletter</h3>
+                </div>
+                <form class="relative newsletter-form">
+                  <input type="email" placeholder="Your email address">
+                </form>
+                <input type="submit" value="Subscribe" id="submit-button" class="btn btn-lg btn-color">
+              </div>              
+
+              <!-- Instagram Feed Grid -->
+              <div class="widget instagram">
+                <div class="heading-lines">
+                  <h3 class="widget-title heading">Instagram</h3>
+                </div>
+                <ul id="instafeed-grid"></ul>
+              </div>
+
+              <!-- Categories -->
+              <div class="widget categories">
+                <div class="heading-lines">
+                  <h3 class="widget-title heading">Categories</h3>
+                </div>
+                <ul class="list-dividers">
+                  <li>
+                    <% link_to "/" do%>Lifestyle<% end %><span>(8)</span>
+                  </li>
+                  <li>
+                    <% link_to "/" do%>Travel<% end %><span>(14)</span>
+                  </li>
+                  <li>
+                    <% link_to "/" do%>Beauty<% end %><span>(5)</span>
+                  </li>
+                  <li>
+                    <% link_to "/" do%>Music<% end %><span>(3)</span>
+                  </li>
+                  <li>
+                    <% link_to "/" do%>Food<% end %><span>(7)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Ad banner -->
+              <div class="widget custom-ad-banner">
+               <%= link_to "/" do%>
+                 <%= image_tag("http://via.placeholder.com/300x250", class: "img-responsive", alt:"") %>
+                <% end %>
+              </div>
+
+              <!-- Recent Posts -->
+              <div class="widget recent-posts">
+                <div class="heading-lines">
+                  <h3 class="widget-title heading">Recent Posts</h3>
+                </div>
+                <div class="entry-list w-thumbs">
+                  <ul class="posts-list list-dividers">
+                    <li class="entry-li">
+                      <article class="post-small clearfix">
+                        <div class="entry-img">
+                          <%= link_to "/" do%>
+                             <%= image_tag("http://via.placeholder.com/300x250", class: "img-responsive", alt:"") %>
+                          <% end %>
+                        </div>
+                        <div class="entry">
+                          <h3 class="entry-title">
+                         <%= link_to "/" do%>Best Beaches in Sydney<% end %></h3>
+                          <ul class="entry-meta list-inline">
+                            <li class="entry-date">
+                               <%= link_to "/" do%>19 Mar, 2016<% end %>
+                            </li>
+                          </ul>
+                        </div>
+                      </article>
+                    </li>
+                    <li class="entry-li">
+                      <article class="post-small clearfix">
+                        <div class="entry-img">
+                          <%= link_to "/" do%>
+                             <%= image_tag("http://via.placeholder.com/300x250", class: "img-responsive", alt:"") %>
+                          <% end %>
+                        </div>
+                        <div class="entry">
+                          <h3 class="entry-title">
+                         <%= link_to "/" do%>Best Beaches in Sydney<% end %></h3>
+                          <ul class="entry-meta list-inline">
+                            <li class="entry-date">
+                               <%= link_to "/" do%>19 Mar, 2016<% end %>
+                            </li>
+                          </ul>
+                        </div>
+                      </article>
+                    </li>
+                    <li class="entry-li">
+                      <article class="post-small clearfix">
+                        <div class="entry-img">
+                          <%= link_to "/" do%>
+                             <%= image_tag("http://via.placeholder.com/300x250", class: "img-responsive", alt:"") %>
+                          <% end %>
+                        </div>
+                        <div class="entry">
+                          <h3 class="entry-title">
+                         <%= link_to "/" do%>Best Beaches in Sydney<% end %></h3>
+                          <ul class="entry-meta list-inline">
+                            <li class="entry-date">
+                               <%= link_to "/" do%>19 Mar, 2016<% end %>
+                            </li>
+                          </ul>
+                        </div>
+                      </article>
+                    </li>
+                    <li class="entry-li">
+                      <article class="post-small clearfix">
+                        <div class="entry-img">
+                          <%= link_to "/" do%>
+                             <%= image_tag("http://via.placeholder.com/300x250", class: "img-responsive", alt:"") %>
+                          <% end %>
+                        </div>
+                        <div class="entry">
+                          <h3 class="entry-title">
+                         <%= link_to "/" do%>Best Beaches in Sydney<% end %></h3>
+                          <ul class="entry-meta list-inline">
+                            <li class="entry-date">
+                               <%= link_to "/" do%>19 Mar, 2016<% end %>
+                            </li>
+                          </ul>
+                        </div>
+                      </article>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Latest Tweets -->
+              <div class="widget categories">
+                <div class="heading-lines">
+                  <h3 class="widget-title heading">Latest Tweets</h3>
+                </div>
+                <div class="twitter-slider text-center">
+                  <i class="fa fa-twitter twitter-icon"></i>
+                   <%= link_to "/" do%>@deothemes<% end %>
+                  <div id="tweets"></div>
+                </div>
+              </div>
+            </aside> <!-- end sidebar -->
+          </div> <!-- end row -->
+        </div> <!-- end container -->
+      </section> <!-- end content -->
+
+
+      <!-- Instagram Feed -->
+      <div class="instagram-feed text-center">
+        <h3 class="heading uppercase">Instagram</h3>
+        <h5 class="heading uppercase mb-30">follow @soho</h5>
+        <ul id="instafeed-row"></ul>
+      </div>
+
+
+      <div class="widget-social">
+       <div class="social-icons text-center">
+          <%= link_to "/" do%>
+            <i class="fa fa-instagram"></i>
+            <span>instagram</span>
+          <% end %>
+         <%= link_to "/" do%>
+            <i class="fa fa-facebook"></i>
+            <span>facebook</span>
+          <% end %>
+          <%= link_to "/" do%>
+            <i class="fa fa-twitter"></i>
+            <span>twitter</span>
+          <% end %>
+          <%= link_to "/" do%>
+            <i class="fa fa-pinterest-p"></i>
+            <span>pinterest</span>
+          <% end %>
+         <%= link_to "/" do%>
+            <i class="fa fa-rss"></i>
+            <span>rss</span>
+          <% end %>
+        </div>
+      </div>
+
+
+      <!-- Footer Type-1 -->
+      <footer class="footer footer-type-1 bg-dark">
+        <div class="bottom-footer">
+          <div class="container">
+            <div class="row">
+
+              <div class="col-sm-12 copyright text-center">
+                <span>
+                   © 2017 Andymental • Made by  <%= link_to "/" do%>Rutul Shah<% end %>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer> <!-- end footer -->
+
+
+      <div id="back-to-top">
+        <a href="#top"><i class="fa fa-angle-up"></i></a>
+      </div>
+
+    </div> <!-- end content wrapper -->

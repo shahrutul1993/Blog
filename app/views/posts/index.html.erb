@@ -21,7 +21,7 @@
       <section class="section-wrap latest-stories pb-0">
         <div class="container-fluid nopadding">
           <div class="heading-row text-center mb-40">
-            <h2 class="heading uppercase small">Latest Stories</h2>
+            <h2 class="heading uppercase small">Latest Posts</h2>
           </div>
 
           <div id="main-slider" class="flickity-slider-wrap">
@@ -29,74 +29,18 @@
             <div class="gallery-cell">
               <article>
                 <%= link_to "/", class: "entry-img" do%>
-                <%= image_tag("http://via.placeholder.com/377x307", class: "img-responsive", alt:"") %>
+                <%= image_tag(post.banner_image_url, class: "img-responsive", alt:"") %>
                   <span class="entry-category">Travel</span>
                 <% end %>
                 <div class="entry text-center">
                   <h4 class="entry-title uppercase">
-                  <%= link_to "/" do%><%= post.title%><% end %>
+                  <%= link_to post do%><%= post.title%><% end %>
                   </h4>
-                  <span class="entry-date">Jul 14, 2016</span>
+                  <span class="entry-date"><%= post.display_day_published %></span>
                 </div>
               </article>
               </div>
               <% end %>
-
-            <div class="gallery-cell">
-              <article>
-                <%= link_to "/", class: "entry-img" do%>
-                  <%= image_tag("http://via.placeholder.com/377x307", class: "img-responsive", alt:"") %>
-                  <span class="entry-category">Travel</span>
-                <% end %>
-                <div class="entry text-center">
-                  <h4 class="entry-title uppercase">
-                  <%= link_to "/" do%>Vinez Boat Ride<% end %></h4>
-                  <span class="entry-date">Jul 14, 2016</span>
-                </div>
-              </article>
-            </div>
-
-            <div class="gallery-cell">
-              <article>
-                <%= link_to "/", class: "entry-img" do%>
-                  <%= image_tag("http://via.placeholder.com/377x307", class: "img-responsive", alt:"") %>
-                  <span class="entry-category">Travel</span>
-                <% end %>
-                <div class="entry text-center">
-                  <h4 class="entry-title uppercase">
-                  <%= link_to "/" do%>Vinez Boat Ride<% end %></h4>
-                  <span class="entry-date">Jul 14, 2016</span>
-                </div>
-              </article>
-            </div>
-
-            <div class="gallery-cell">
-              <article>
-                <%= link_to "/", class: "entry-img" do%>
-                  <%= image_tag("http://via.placeholder.com/377x307", class: "img-responsive", alt:"") %>
-                  <span class="entry-category">Travel</span>
-                <% end %>
-                <div class="entry text-center">
-                  <h4 class="entry-title uppercase">
-                  <%= link_to "/" do%>Vinez Boat Ride<% end %></h4>
-                  <span class="entry-date">Jul 14, 2016</span>
-                </div>
-              </article>
-            </div>
-
-           <div class="gallery-cell">
-              <article>
-                <%= link_to "/", class: "entry-img" do%>
-                  <%= image_tag("http://via.placeholder.com/377x307", class: "img-responsive", alt:"") %>
-                  <span class="entry-category">Travel</span>
-                <% end %>
-                <div class="entry text-center">
-                  <h4 class="entry-title uppercase">
-                  <%= link_to "/" do%>Vinez Boat Ride<% end %></h4>
-                  <span class="entry-date">Jul 14, 2016</span>
-                </div>
-              </article>
-            </div>
         </div>
         </div>
 
