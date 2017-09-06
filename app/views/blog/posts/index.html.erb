@@ -2,18 +2,45 @@
 <% provide(:blog_active, 'active') %>
 <p id="notice"><%= notice %></p>
 
-<!-- Preloader -->
-    <section class="header-wrap hero-section bg-light">
-      <div class="container">
-        <div class="logo-container text-center">
-          <div class="logo-wrap">
-            <%= link_to "/" do%>
-            <%= image_tag("http://via.placeholder.com/50x50", class: "logo-dark", alt:"") %>
-            <% end %>
-          </div>
-        </div>
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1"></div>
+      <div class="hero">
+        <hgroup>
+            <h1 style="color: #fff">We are creative</h1>        
+        </hgroup>
       </div>
-    </section>
+    </div>
+    <div class="item slides">
+      <div class="slide-2"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1 style="color: #fff">We are smart</h1>        
+        </hgroup>       
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1 style="color: #fff">We are amazing</h1>        
+        </hgroup>
+      </div>
+    </div>
+  </div> 
+</div>
 
     <div class="content-wrapper oh">
 
@@ -25,7 +52,7 @@
           </div>
 
           <div id="main-slider" class="flickity-slider-wrap">
-          <% @posts.each do |post|%>
+          <% @posts.limit(5).each do |post|%>
             <div class="gallery-cell">
               <article>
                 <%= link_to "/", class: "entry-img" do%>
@@ -51,25 +78,27 @@
         <div class="container relative">
           <div class="row">
             <!-- post content -->
+
             <div class="col-md-9 post-content mb-50">
               <!-- large post -->
+               <% @posts.limit(2).each do |post|%>
               <article class="entry-item large-post">
                 <div class="entry-header">
                   <%= link_to "/", class: "entry-category" do%>Lifestyle<% end %>
                   <h2 class="entry-title">
-                    <%= link_to "/" do%>Natural Summer<% end %>
+                    <%= link_to post do%><%= post.title%><% end %>
                   </h2>
                 </div>
                 <div class="entry-img">
                   <%= link_to "/" do%>
-                   <%= image_tag("http://via.placeholder.com/888x578", class: "img-responsive", alt:"") %>
+                   <%= image_tag(post.banner_image_url, alt:"") %>
                   <% end %>
                 </div>
 
                 <div class="entry-wrap">
                   <div class="entry">
                     <div class="entry-content">
-                      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quisma bibendum auctor, nisi elit consequat ipsum, necsagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi acumsan ipsum velit. Nam nec tellusb a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent tacitioci Nullam ac urnaeu felis dapibus condi  entum sit amet a augue osqu ad litora torquent per conubia nostra, perada inceptos...
+                      <p><%= post.body%>
                       </p>
                       <div class="text-center">
                         <%= link_to "/", class: "read-more underline-link" do%>Read More<% end %>
@@ -79,10 +108,7 @@
                     <div class="entry-meta-wrap clearfix">
                       <ul class="entry-meta">
                         <li class="entry-date">
-                          <%= link_to "/" do%>August 30, 2016<% end %>
-                        </li>
-                        <li class="entry-comments">
-                          <%= link_to "/" do%>2 Comments<% end %>
+                          <%= link_to "/" do%><%= post.display_day_published %><% end %>
                         </li>             
                       </ul>
 
@@ -107,34 +133,36 @@
                   </div>
                 </div>
               </article> <!-- end large post -->
+              <% end %>
 
               <!-- grid posts -->
               <div class="row items-grid">
+                 <% @posts.limit(2).each do |post|%>
                 <div class="col-sm-6">
                   <article class="entry-item">
                     <div class="entry-img">
                      <%= link_to "/" do%>
-                       <%= image_tag("http://via.placeholder.com/425x324", class: "img-responsive", alt:"") %>
+                       <%= image_tag(post.banner_image_url, alt:"") %>
                       <% end %>
                     </div>
                     <div class="entry-header">
                       <%= link_to "/", class: "entry-category" do%>Lifestyle<% end %>
                       <h2 class="entry-title">
-                        <%= link_to "/" do%>missing the Bahamas<% end %>
+                        <%= link_to post do%><%= post.title%><% end %>
                       </h2>
                     </div>
                     <div class="entry-wrap">
                       <div class="entry">
                         <div class="entry-content">
-                          <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulput ate cursus a sit amet mauris. Morbi accumsan ipsum velit. Namec elit tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae...
+                          <p><%= post.body%>
                           </p>
                         </div>
                         <div class="entry-meta-wrap clearfix">
                           <ul class="entry-meta">
                             <li class="entry-date">
-                              <%= link_to "/" do%>August 30, 2016<% end %>
+                              <%= link_to "/" do%><%= post.display_day_published %><% end %>
                             </li>
-                            <li class="entry-comments">
+                             <li class="entry-comments">
                                <%= link_to "/" do%>2 Comments<% end %>
                             </li>
                           </ul>
@@ -143,249 +171,9 @@
                     </div>
                   </article>
                 </div>
-
-                <div class="col-sm-6">
-                   <article class="entry-item">
-                    <div class="entry-img">
-                     <%= link_to "/" do%>
-                       <%= image_tag("http://via.placeholder.com/425x324", class: "img-responsive", alt:"") %>
-                      <% end %>
-                    </div>
-                    <div class="entry-header">
-                      <%= link_to "/", class: "entry-category" do%>Lifestyle<% end %>
-                      <h2 class="entry-title">
-                        <%= link_to "/" do%>missing the Bahamas<% end %>
-                      </h2>
-                    </div>
-                    <div class="entry-wrap">
-                      <div class="entry">
-                        <div class="entry-content">
-                          <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulput ate cursus a sit amet mauris. Morbi accumsan ipsum velit. Namec elit tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae...
-                          </p>
-                        </div>
-                        <div class="entry-meta-wrap clearfix">
-                          <ul class="entry-meta">
-                            <li class="entry-date">
-                              <%= link_to "/" do%>August 30, 2016<% end %>
-                            </li>
-                            <li class="entry-comments">
-                               <%= link_to "/" do%>2 Comments<% end %>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="col-sm-6">
-                  <article class="entry-item">
-                    <div class="entry-img">
-                     <%= link_to "/" do%>
-                       <%= image_tag("http://via.placeholder.com/425x324", class: "img-responsive", alt:"") %>
-                      <% end %>
-                    </div>
-                    <div class="entry-header">
-                      <%= link_to "/", class: "entry-category" do%>Lifestyle<% end %>
-                      <h2 class="entry-title">
-                        <%= link_to "/" do%>missing the Bahamas<% end %>
-                      </h2>
-                    </div>
-                    <div class="entry-wrap">
-                      <div class="entry">
-                        <div class="entry-content">
-                          <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulput ate cursus a sit amet mauris. Morbi accumsan ipsum velit. Namec elit tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae...
-                          </p>
-                        </div>
-                        <div class="entry-meta-wrap clearfix">
-                          <ul class="entry-meta">
-                            <li class="entry-date">
-                              <%= link_to "/" do%>August 30, 2016<% end %>
-                            </li>
-                            <li class="entry-comments">
-                               <%= link_to "/" do%>2 Comments<% end %>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="col-sm-6">
-                 <article class="entry-item">
-                    <div class="entry-img">
-                     <%= link_to "/" do%>
-                       <%= image_tag("http://via.placeholder.com/425x324", class: "img-responsive", alt:"") %>
-                      <% end %>
-                    </div>
-                    <div class="entry-header">
-                      <%= link_to "/", class: "entry-category" do%>Lifestyle<% end %>
-                      <h2 class="entry-title">
-                        <%= link_to "/" do%>missing the Bahamas<% end %>
-                      </h2>
-                    </div>
-                    <div class="entry-wrap">
-                      <div class="entry">
-                        <div class="entry-content">
-                          <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulput ate cursus a sit amet mauris. Morbi accumsan ipsum velit. Namec elit tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae...
-                          </p>
-                        </div>
-                        <div class="entry-meta-wrap clearfix">
-                          <ul class="entry-meta">
-                            <li class="entry-date">
-                              <%= link_to "/" do%>August 30, 2016<% end %>
-                            </li>
-                            <li class="entry-comments">
-                               <%= link_to "/" do%>2 Comments<% end %>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
+                <% end %>
               </div> <!-- end grid posts -->
 
-              <!-- large post -->
-              <article class="entry-item large-post">
-
-                <div class="entry-header">
-                  <%= link_to "/", class: "entry-category" do%>Lifestyle<% end %>
-                  <h2 class="entry-title">
-                    <%= link_to "/" do%>escape from reality<% end %>
-                  </h2>
-                </div>
-
-                <%= link_to "/", class: "entry-slider" do%>
-                  <div class="flexslider" id="flexslider">
-                    <ul class="slides clearfix">
-                      <li>
-                       <%= image_tag("http://via.placeholder.com/888x578", class: "img-responsive", alt:"") %>
-                      </li>
-                      <li>
-                        <%= image_tag("http://via.placeholder.com/888x578", class: "img-responsive", alt:"") %>
-                      </li>
-                      <li>
-                         <%= image_tag("http://via.placeholder.com/888x578", class: "img-responsive", alt:"") %>
-                      </li>
-                    </ul>
-                  </div>
-                <% end %> <!-- end slider -->
-
-                <div class="entry-wrap">
-                  <div class="entry">
-                    <div class="entry-content">
-                      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quisma bibendum auctor, nisi elit consequat ipsum, necsagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi acumsan ipsum velit. Nam nec tellusb a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent tacitioci Nullam ac urnaeu felis dapibus condi  entum sit amet a augue osqu ad litora torquent per conubia nostra, perada inceptos...
-                      </p>
-                      <div class="text-center">
-                        <%= link_to "/", class: "read-more underline-link" do%>Read More<% end %>
-                      </div>
-                    </div>
-
-                    <div class="entry-meta-wrap clearfix">
-                      <ul class="entry-meta">
-                        <li class="entry-date">
-                          <%= link_to "/" do%>August 30, 2016<% end %>
-                        </li>
-                        <li class="entry-comments">
-                        <%= link_to "/" do%>2 Comments<% end %>
-                        </li>             
-                      </ul>
-
-                      <div class="social-icons right">
-                       <%= link_to "/" do%>
-                          <i class="fa fa-instagram"></i>
-                        <% end %>
-                       <%= link_to "/" do%>
-                          <i class="fa fa-facebook"></i>
-                        <% end %>
-                      <%= link_to "/" do%>
-                          <i class="fa fa-twitter"></i>
-                        <% end %>                        
-                      <%= link_to "/" do%>
-                          <i class="fa fa-pinterest-p"></i>
-                        <% end %>
-                       <%= link_to "/" do%>
-                          <i class="fa fa-heart"></i>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article> <!-- end large post -->
-
-              <!-- grid posts -->
-              <div class="row">
-                <div class="col-sm-6">
-                  <article class="entry-item">
-                    <div class="entry-img">
-                     <%= link_to "/" do%>
-                       <%= image_tag("http://via.placeholder.com/425x324", class: "img-responsive", alt:"") %>
-                      <% end %>
-                    </div>
-                    <div class="entry-header">
-                      <%= link_to "/", class: "entry-category" do%>Lifestyle<% end %>
-                      <h2 class="entry-title">
-                        <%= link_to "/" do%>missing the Bahamas<% end %>
-                      </h2>
-                    </div>
-                    <div class="entry-wrap">
-                      <div class="entry">
-                        <div class="entry-content">
-                          <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulput ate cursus a sit amet mauris. Morbi accumsan ipsum velit. Namec elit tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae...
-                          </p>
-                        </div>
-                        <div class="entry-meta-wrap clearfix">
-                          <ul class="entry-meta">
-                            <li class="entry-date">
-                              <%= link_to "/" do%>August 30, 2016<% end %>
-                            </li>
-                            <li class="entry-comments">
-                               <%= link_to "/" do%>2 Comments<% end %>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="col-sm-6">
-                   <article class="entry-item">
-                    <div class="entry-img">
-                     <%= link_to "/" do%>
-                       <%= image_tag("http://via.placeholder.com/425x324", class: "img-responsive", alt:"") %>
-                      <% end %>
-                    </div>
-                    <div class="entry-header">
-                      <%= link_to "/", class: "entry-category" do%>Lifestyle<% end %>
-                      <h2 class="entry-title">
-                        <%= link_to "/" do%>missing the Bahamas<% end %>
-                      </h2>
-                    </div>
-                    <div class="entry-wrap">
-                      <div class="entry">
-                        <div class="entry-content">
-                          <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulput ate cursus a sit amet mauris. Morbi accumsan ipsum velit. Namec elit tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae...
-                          </p>
-                        </div>
-                        <div class="entry-meta-wrap clearfix">
-                          <ul class="entry-meta">
-                            <li class="entry-date">
-                              <%= link_to "/" do%>August 30, 2016<% end %>
-                            </li>
-                            <li class="entry-comments">
-                               <%= link_to "/" do%>2 Comments<% end %>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              </div> <!-- end grid posts -->
 
               <div class="row mt-20">
                 <div class="col-md-12 text-center">
@@ -415,13 +203,7 @@
                 <input type="submit" value="Subscribe" id="submit-button" class="btn btn-lg btn-color">
               </div>
 
-              <!-- Instagram Feed Grid -->
-              <div class="widget instagram">
-                <div class="heading-lines">
-                  <h3 class="widget-title heading">Instagram</h3>
-                </div>
-                <ul id="instafeed-grid"></ul>
-              </div>
+             
 
               <!-- Categories -->
               <div class="widget categories">
