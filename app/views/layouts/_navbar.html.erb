@@ -40,7 +40,9 @@
                         <li><%= link_to "/" do%>Travel<% end %></li>
                       </ul>
                     </li>
-
+                     <li>
+                      <%= link_to author_posts_path, class: " nav-link #{yield(:about_active)}" do%>MY Post<% end %>
+                    </li>
                     <li>
                       <%= link_to about_path, class: " nav-link #{yield(:about_active)}" do%>About<% end %>
                     </li>
