@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
 gem 'popper_js'
 gem 'friendly_id'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'byebug'

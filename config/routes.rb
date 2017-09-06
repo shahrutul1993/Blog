@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+
+  get  '/signup',  to: 'users#new'
+  post '/signup',  to: 'users#create'
+
 	root 'blog/posts#index'
 
 	# /author/posts/new
@@ -13,4 +17,6 @@ Rails.application.routes.draw do
 	get 'posts' => 'posts#index', as: :posts
 	get 'posts/:id' => 'posts#show', as: :post
 	end
+
+	resources :users
 end
