@@ -15,10 +15,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require popper
-
-
 //= require plugins.js
 //= require twitterFetcher_min.js
 //= require scripts.js
 
 
+document.addEventListener("turbolinks:load", function() {
+  tinymce.remove();
+  tinymce.init({
+  	height: '300',
+  	selector:'textarea#post_body',
+  	plugins: "codesample image",
+    toolbar: "undo redo | styleselect | bold italic | codesample image" });
+})

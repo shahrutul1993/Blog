@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+ Rails.application.routes.draw do
 
 
   get 'sessions/new'
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 	namespace :author do
 		resources :posts
 	end
+
 
 	scope module: 'blog' do
 	get 'about' => 'pages#about', as: :about

@@ -2,17 +2,45 @@
 <% provide(:blog_active, 'active') %>
 
 
- <section class="header-wrap hero-section bg-light">
-      <div class="container">
-        <div class="logo-container text-center">
-          <div class="logo-wrap">
-            <%= link_to "/" do%>
-            <%= image_tag("http://via.placeholder.com/270x270", class: "logo-dark", alt:"") %>
-            <% end %>
-          </div>
-        </div>
+  <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1"></div>
+      <div class="hero">
+        <hgroup>
+            <h1 style="color: #fff">We are creative</h1>        
+        </hgroup>
       </div>
-    </section>
+    </div>
+    <div class="item slides">
+      <div class="slide-2"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1 style="color: #fff">We are smart</h1>        
+        </hgroup>       
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1 style="color: #fff">We are amazing</h1>        
+        </hgroup>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <div class="content-wrapper oh">
@@ -33,7 +61,7 @@
 
                 <div class="entry-img">
                  <%= link_to "/" do%>
-                   <%= image_tag("http://via.placeholder.com/888x578", class: "img-responsive", alt:"") %>
+                    <%= image_tag(@post.banner_image_url, class: "img-responsive", alt:"") %>
                   <% end %>
                 </div>
 
@@ -50,11 +78,8 @@
                           <span>Bernard M. Baruch</span>
                         </blockquote>
 
-                        <p>Our Theme is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious. Our subconscious mind contains such power and complexity that it literally staggers the imagination.</p>
-                        
-                        <h5 class="uppercase">The best flexible theme on themeforest</h5>
-                        
-                        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. And finally the subconscious is the mechanism through which thought impulses which are repeated regularly with feeling and emotion are quickened, charged. And finally the subconscious is the mechanism through which thought impulses which are repeated regularly with feeling and emotion are quickened, charged and changed into their physical equivalent.</p>
+                        <p><%= @post.body %></p>
+
                       </div>
 
                       <!-- tags -->
@@ -113,56 +138,21 @@
                             <article class="entry-item">
                               <div class="entry-img">
                                <%= link_to "/" do%>
-                                    <%= image_tag("http://via.placeholder.com/425x324", alt:"") %>
+                                <%= image_tag(@post.banner_image_url, alt:"") %>
                                 <% end %>
                               </div>
                               <h4 class="entry-title">
-                                 <%= link_to "/" do%>Missing the Bahamas<% end %>
+                                 <%= link_to "/" do%>
+                                 <%= @post.title%>
+                                 <% end %>
                               </h4>
                               <div class="entry-meta-wrap clearfix">
                                 <ul class="entry-meta">
                                   <li class="entry-date">
-                                    <%= link_to "/" do%>August 30, 2016<% end %>
-                                  </li>                             
-                                </ul>
-                              </div>
-                            </article>
-                          </div>
-
-                          <div class="col-sm-4">
-                            <article class="entry-item">
-                              <div class="entry-img">
-                               <%= link_to "/" do%>
-                                    <%= image_tag("http://via.placeholder.com/425x324", alt:"") %>
-                                <% end %>
-                              </div>
-                              <h4 class="entry-title">
-                                 <%= link_to "/" do%>Missing the Bahamas<% end %>
-                              </h4>
-                              <div class="entry-meta-wrap clearfix">
-                                <ul class="entry-meta">
-                                  <li class="entry-date">
-                                    <%= link_to "/" do%>August 30, 2016<% end %>
-                                  </li>                             
-                                </ul>
-                              </div>
-                            </article>
-                          </div>
-                          <div class="col-sm-4">
-                            <article class="entry-item">
-                              <div class="entry-img">
-                               <%= link_to "/" do%>
-                                    <%= image_tag("http://via.placeholder.com/425x324", alt:"") %>
-                                <% end %>
-                              </div>
-                              <h4 class="entry-title">
-                                 <%= link_to "/" do%>Missing the Bahamas<% end %>
-                              </h4>
-                              <div class="entry-meta-wrap clearfix">
-                                <ul class="entry-meta">
-                                  <li class="entry-date">
-                                    <%= link_to "/" do%>August 30, 2016<% end %>
-                                  </li>                             
+                                  <%= link_to "/" do%>
+                                  <%= @post.display_day_published %>
+                                  <% end %>
+                                  </li>
                                 </ul>
                               </div>
                             </article>

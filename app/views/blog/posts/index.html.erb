@@ -101,7 +101,7 @@
                       <p><%= post.body%>
                       </p>
                       <div class="text-center">
-                        <%= link_to "/", class: "read-more underline-link" do%>Read More<% end %>
+                        <%= link_to post, class: "read-more underline-link" do%>Read More<% end %>
                       </div>
                     </div>
 
@@ -137,7 +137,7 @@
 
               <!-- grid posts -->
               <div class="row items-grid">
-                 <% @posts.limit(2).each do |post|%>
+                 <% @posts.limit(4).each do |post|%>
                 <div class="col-sm-6">
                   <article class="entry-item">
                     <div class="entry-img">
