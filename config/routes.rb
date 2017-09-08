@@ -13,7 +13,10 @@
 
 	# /author/posts/new
 	namespace :author do
-		resources :posts
+		resources :posts do
+		put 'publish' => 'posts#publish', on: :member
+		put 'unpublish' => 'posts#unpublish', on: :member
+	end
 	end
 
 

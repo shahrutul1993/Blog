@@ -15,6 +15,9 @@ gem 'font-awesome-rails'
 gem 'popper_js'
 gem 'friendly_id'
 gem 'bcrypt'
+gem 'annotate'
+gem "will_paginate", "~> 3.0.4"
+
 
 group :development, :test do
   gem 'byebug'

@@ -1,7 +1,7 @@
 module Author
 
 class PostsController < AuthorController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
 
   def index
     @posts = current_user.posts.most_recent
@@ -15,6 +15,16 @@ class PostsController < AuthorController
   end
 
   def edit
+  end
+
+  def publish
+    @post.publish
+    redirect_to author_posts_url
+  end
+
+  def unpublish
+    @post.unpublish
+    redirect_to author_posts_url
   end
 
   def create

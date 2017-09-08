@@ -4,7 +4,7 @@ class PostsController < BlogController
 
 
   def index
-    @posts = Post.most_recent
+    @posts = Post.most_recent.published.paginate(:page => params[:page],per_page:  4)
   end
 
   def show
