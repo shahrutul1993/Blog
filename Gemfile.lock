@@ -36,6 +36,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (4.0.0)
+      activerecord (>= 4.0)
     annotate (2.7.2)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
@@ -89,6 +91,7 @@ GEM
     multi_json (1.12.1)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    pg (0.18.4)
     popper_js (1.11.1)
     rack (1.6.8)
     rack-test (0.6.3)
@@ -167,6 +170,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 4.0)
   annotate
   bcrypt
   bootstrap-sass (~> 3.3.6)
@@ -176,6 +180,7 @@ DEPENDENCIES
   friendly_id
   jbuilder (~> 2.0)
   jquery-rails
+  pg (~> 0.18.4)
   popper_js
   rails (= 4.2.6)
   sass-rails (~> 5.0)

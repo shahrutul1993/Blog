@@ -16,12 +16,16 @@
 #
 
 class Post < ActiveRecord::Base
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
   extend FriendlyId
   friendly_id :title, use: :slugged
 
   belongs_to  :user
+  has_many :comments
+
   scope :most_recent, ->  {order(published_at: :desc)}
   scope :published, -> {where(published: true)}
+
 
   def should_generate_new_friendly_id?
   	title_changed?

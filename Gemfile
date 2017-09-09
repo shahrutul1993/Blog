@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
 gem 'sqlite3'
+gem 'pg', '~> 0.18.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -17,6 +18,7 @@ gem 'friendly_id'
 gem 'bcrypt'
 gem 'annotate'
 gem "will_paginate", "~> 3.0.4"
+gem 'acts-as-taggable-on', '~> 4.0'
 
 
 group :development, :test do

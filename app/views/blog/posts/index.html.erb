@@ -55,10 +55,11 @@
           <% @posts.limit(5).each do |post|%>
             <div class="gallery-cell">
               <article>
-                <%= link_to "/", class: "entry-img" do%>
+                <%= link_to post, class: "entry-img" do%>
                 <%= image_tag(post.banner_image_url, class: "img-responsive", alt:"") %>
-                  <span class="entry-category">Travel</span>
                 <% end %>
+                 <%#= link_to  post.tags.map(&:name).join(', '), class: "entry-category" do%>
+                 <%# end %>
                 <div class="entry text-center">
                   <h4 class="entry-title uppercase">
                   <%= link_to post do%><%= post.title%><% end %>
@@ -137,11 +138,11 @@
 
               <!-- grid posts -->
               <div class="row items-grid">
-                 <% @posts.limit(4).each do |post|%>
+                 <% @posts.limit(4).offset(3).each do |post|%>
                 <div class="col-sm-6">
                   <article class="entry-item">
                     <div class="entry-img">
-                     <%= link_to "/" do%>
+                     <%= link_to post do%>
                        <%= image_tag(post.banner_image_url, alt:"") %>
                       <% end %>
                     </div>
@@ -234,13 +235,6 @@
                 </ul>
               </div>
 
-              <!-- Ad banner -->
-              <div class="widget custom-ad-banner">
-                <%= link_to "/" do%>
-                 <%= image_tag("http://via.placeholder.com/300x250", class: "img-responsive", alt:"") %>
-                <% end %>
-              </div>
-
               <!-- Recent Posts -->
               <div class="widget recent-posts">
                 <div class="heading-lines">
@@ -248,78 +242,26 @@
                 </div>
                 <div class="entry-list w-thumbs">
                   <ul class="posts-list list-dividers">
+                    <% @posts.limit(3).offset(3).each do |post|%>
                     <li class="entry-li">
                       <article class="post-small clearfix">
                         <div class="entry-img">
-                          <%= link_to "/" do%>
-                             <%= image_tag("http://via.placeholder.com/300x250", class: "img-responsive", alt:"") %>
+                         <%= link_to post do%>
+                            <%= image_tag(post.banner_image_url, alt:"") %>
                           <% end %>
                         </div>
                         <div class="entry">
                           <h3 class="entry-title">
-                         <%= link_to "/" do%>Best Beaches in Sydney<% end %></h3>
+                           <%= link_to post do%><%= post.title%><% end %></h3>
                           <ul class="entry-meta list-inline">
                             <li class="entry-date">
-                               <%= link_to "/" do%>19 Mar, 2016<% end %>
+                              <%= link_to "/" do%><%= post.display_day_published %><% end %>
                             </li>
                           </ul>
                         </div>
                       </article>
                     </li>
-                    <li class="entry-li">
-                      <article class="post-small clearfix">
-                        <div class="entry-img">
-                         <%= link_to "/" do%>
-                            <%= image_tag("http://via.placeholder.com/88x69", class: "img-responsive", alt:"") %>
-                          <% end %>
-                        </div>
-                        <div class="entry">
-                          <h3 class="entry-title">
-                           <%= link_to "/" do%>First Summer Ice Cream<% end %></h3>
-                          <ul class="entry-meta list-inline">
-                            <li class="entry-date">
-                              <%= link_to "/" do%>16 Mar, 2016<% end %>
-                            </li>
-                          </ul>
-                        </div>
-                      </article>
-                    </li>
-                    <li class="entry-li">
-                      <article class="post-small clearfix">
-                        <div class="entry-img">
-                         <%= link_to "/" do%>
-                            <%= image_tag("http://via.placeholder.com/88x69", class: "img-responsive", alt:"") %>
-                          <% end %>
-                        </div>
-                        <div class="entry">
-                          <h3 class="entry-title">
-                          <%= link_to "/" do%>First Summer Ice Cream<% end %></h3>
-                          <ul class="entry-meta list-inline">
-                            <li class="entry-date">
-                              <%= link_to "/" do%>16 Mar, 2016<% end %>
-                            </li>
-                          </ul>
-                        </div>
-                      </article>
-                    </li>
-                    <li class="entry-li">
-                      <article class="post-small clearfix">
-                        <div class="entry-img">
-                         <%= link_to "/" do%>
-                            <%= image_tag("http://via.placeholder.com/88x69", class: "img-responsive", alt:"") %>
-                          <% end %>
-                        </div>
-                        <div class="entry">
-                          <h3 class="entry-title">
-                         <%= link_to "/" do%>First Summer Ice Cream<% end %></h3>
-                          <ul class="entry-meta list-inline">
-                            <li class="entry-date">
-                              <%= link_to "/" do%>16 Mar, 2016<% end %>
-                            </li>
-                          </ul>
-                        </div>
-                      </article>
-                    </li>
+                    <% end %>
                   </ul>
                 </div>
               </div>
@@ -339,15 +281,6 @@
           </div> <!-- end row -->
         </div> <!-- end container -->
       </section> <!-- end content -->
-
-
-      <!-- Instagram Feed -->
-      <div class="instagram-feed text-center">
-        <h3 class="heading uppercase">Instagram</h3>
-        <h5 class="heading uppercase mb-30">follow @soho</h5>
-        <ul id="instafeed-row"></ul>
-      </div>
-
 
       <div class="widget-social">
         <div class="social-icons text-center">

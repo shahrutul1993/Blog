@@ -94,10 +94,10 @@
                       <div class="entry-meta-wrap clearfix">
                         <ul class="entry-meta">
                           <li class="entry-date">
-                             <%= link_to "/" do%>August 30, 2016<% end %>
+                             <%= link_to "/" do%><%= @post.display_day_published%><% end %>
                           </li>
                           <li class="entry-comments">
-                            <%= link_to "/" do%>2 Comments<% end %>
+                            <%= link_to "#disqus_thread" do%><% end %>
                           </li>
                         </ul>
 
@@ -110,23 +110,7 @@
                         </div>
                       </div>
 
-                      <!-- entry author -->
-                      <div class="entry-author-box clearfix">
-                      <%= image_tag("http://via.placeholder.com/100x100", class: "author-img", alt:"") %>
-                        <div class="author-info">
-                          <h6 class="author-name">
-                         <%= link_to "/" do%>Alexis Ran<% end %></h6>
-                          <p class="mb-0">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quisma bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus itaet.
-                          </p>
-                          <div class="social-icons">
-                            <%= link_to "/" do%><i class="fa fa-instagram"></i><% end %>
-                            <%= link_to "/" do%><i class="fa fa-facebook"></i><% end %>
-                            <%= link_to "/" do%><i class="fa fa-twitter"></i><% end %>
-                            <%= link_to "/" do%><i class="fa fa-pinterest-p"></i><% end %>
-                            <%= link_to "/" do%><i class="fa fa-heart"></i><% end %>
-                          </div>
-                        </div>
-                      </div>
+
 
                       <!-- related posts -->
                       <div class="related-posts mt-40">
@@ -159,84 +143,14 @@
                           </div>
                         </div>
                       </div>
-
-                      <!-- Comments -->
-                      <div class="entry-comments mt-20">
-                        <div class="heading-lines mb-30">
-                          <h3 class="heading small">3 comments</h3>
-                        </div>
-
-                        <ul class="comment-list">
-                          <li>
-                            <div class="comment-body">
-                            <%= link_to "/" do%>
-                            <%= image_tag("http://via.placeholder.com/425x324", class: "comment-avatar", alt:"") %>
-                            <% end %>
-                              <div class="comment-content">
-                                <span class="comment-author">Joeby Ragpa</span>
-                                <span class="comment-date">August 6, 2016 at 12:48 pm</span>    
-                                <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                                <%= link_to "/" do%>Reply<% end %>
-                              </div>
-                            </div>
-
-                            <ul class="comment-reply">
-                              <li>
-                                <div class="comment-body">
-                            <%= link_to "/" do%>
-                            <%= image_tag("http://via.placeholder.com/425x324", class: "comment-avatar", alt:"") %>
-                            <% end %>
-                              <div class="comment-content">
-                                <span class="comment-author">Joeby Ragpa</span>
-                                <span class="comment-date">August 6, 2016 at 12:48 pm</span>    
-                                <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                                <%= link_to "/" do%>Reply<% end %>
-                              </div>
-                            </div>
-                              </li> <!-- end reply comment -->
-                            </ul>
-
-                          </li> <!-- end 1-2 comment -->
-
-                          <li>
-                            <div class="comment-body">
-                            <%= link_to "/" do%>
-                            <%= image_tag("http://via.placeholder.com/425x324", class: "comment-avatar", alt:"") %>
-                            <% end %>
-                              <div class="comment-content">
-                                <span class="comment-author">Joeby Ragpa</span>
-                                <span class="comment-date">August 6, 2016 at 12:48 pm</span>    
-                                <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                                <%= link_to "/" do%>Reply<% end %>
-                              </div>
-                            </div>
-                          </li> <!-- end 3 comment -->
-                        </ul>
-                      </div> <!--  end comments -->
+                        <!-- Comments -->
 
                       <!-- Leave a Comment -->
                       <div class="comment-form mt-60">
                         <div class="heading-lines mb-30">
                           <h3 class="heading small">Leave a Comment</h3>
                         </div>
-                        <form id="form" method="post" action="#">
-                          <div class="row row-16">
-                            <div class="col-md-4">
-                              <input name="name" id="name" type="text" placeholder="Name*">
-                            </div>
-                            <div class="col-md-4">
-                              <input name="mail" id="mail" type="email" placeholder="E-mail*">
-                            </div>
-                            <div class="col-md-4">
-                              <input name="Website" id="Website" type="text" placeholder="Website">
-                            </div>
-                            <div class="col-md-12">
-                              <textarea name="comment" id="comment" placeholder="Comment" rows="8"></textarea>
-                            </div>
-                          </div>
-
-                          <input type="submit" class="btn btn-lg btn-color mt-20" value="Post Comment" id="submit-message">
-                        </form>
+                        <div id="disqus_thread"></div>
                       </div>
                     </div>
                   </div>
@@ -299,12 +213,6 @@
                 </ul>
               </div>
 
-              <!-- Ad banner -->
-              <div class="widget custom-ad-banner">
-               <%= link_to "/" do%>
-                 <%= image_tag("http://via.placeholder.com/300x250", class: "img-responsive", alt:"") %>
-                <% end %>
-              </div>
 
               <!-- Recent Posts -->
               <div class="widget recent-posts">
@@ -462,3 +370,28 @@
       </div>
 
     </div> <!-- end content wrapper -->
+
+
+    <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://andymental-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<script id="dsq-count-scr" src="//andymental-com.disqus.com/count.js" async></script>
+<noscript>
+Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+ 

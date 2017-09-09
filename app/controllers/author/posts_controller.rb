@@ -44,7 +44,7 @@ class PostsController < AuthorController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to author_posts_path(@post), notice: 'Post was successfully updated.' }
+        format.html { redirect_to author_posts_url(@post), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class PostsController < AuthorController
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, :description, :banner_image_url)
+      params.require(:post).permit(:title, :body, :description, :banner_image_url, :tag_list)
     end
 end
 

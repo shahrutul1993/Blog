@@ -31,7 +31,7 @@
                       <%= link_to root_path, class: " nav-link #{yield(:blog_active)}" do%>Blog<% end %>
                     </li>
 
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                       <a href="#">Categories</a><i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown"></i>
                       <ul class="dropdown-menu">
                         <li><%= link_to "/" do%>Lifestyle<% end %></li>
@@ -39,7 +39,8 @@
                         <li><%= link_to "/" do%>Food<% end %></li>
                         <li><%= link_to "/" do%>Travel<% end %></li>
                       </ul>
-                    </li>
+                    </li> -->
+
                     <li>
                       <%= link_to about_path, class: " nav-link #{yield(:about_active)}" do%>About<% end %>
                     </li>
@@ -86,3 +87,5 @@
         </div> <!-- end navigation -->
       </nav> <!-- end navbar -->
     </header>
+
+    
